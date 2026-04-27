@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digestive system from biology</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000033;
+            color: white;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .game-title {
+            text-align: center;
+            color: #FFD700;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .game-board {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .category {
+            background-color: #000099;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .question-cell {
+            background-color: #000099;
+            color: #FFD700;
+            padding: 20px;
+            text-align: center;
+            font-size: 1.5em;
+            cursor: pointer;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s;
+        }
+
+        .question-cell:hover {
+            background-color: #0000CC;
+        }
+
+        .question-cell.answered {
+            background-color: #333366;
+            cursor: not-allowed;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .modal-content {
+            background-color: #000066;
+            color: white;
+            margin: 15% auto;
+            padding: 20px;
+            border: 2px solid #FFD700;
+            width: 70%;
+            text-align: center;
+        }
+
+        .score-display {
+            text-align: center;
+            font-size: 1.5em;
+            margin: 20px 0;
+            color: #FFD700;
+        }
+
+        button {
+            background-color: #000099;
+            color: white;
+            border: 2px solid #FFD700;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0000CC;
+        }
+
+        button.clicked {
+            background-color: #4CAF50;
+            border-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="game-title">Digestive system from biology</h1>
+    <div class="score-display">Score: <span id="score">0</span></div>
+    <div class="game-board" id="gameBoard"></div>
+
+    <div class="modal" id="questionModal">
+        <div class="modal-content">
+            <h2 id="questionText"></h2>
+            <div id="answerOptions"></div>
+            <button id="closeModal" style="display: none;">Close</button>
+        </div>
+    </div>
+
+    <script src="jeopardy.js"></script>
+</body>
+</html>
