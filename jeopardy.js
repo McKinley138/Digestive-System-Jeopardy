@@ -245,6 +245,12 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
+// Add close button event listener once at initialization
+closeModal.addEventListener('click', () => {
+    modal.style.display = 'none';
+    closeModal.style.display = 'none';
+});
+
 // Initialize the game board
 function initializeBoard() {
     // Add categories
@@ -426,13 +432,11 @@ function handleAnswer(correct, points, cell) {
     
     // Show the close button after answering
     closeModal.style.display = 'block';
-    closeModal.addEventListener('click', () => {
-        modal.style.display = 'none';
-        // Reset the close button
-        closeModal.style.display = 'none';
-        // Remove the points indicator when closing the modal
+    
+    // Set a timer to remove the indicator when the modal is closed
+    setTimeout(() => {
         pointsIndicator.remove();
-    });
+    }, 2000);
 }
 
 // Initialize the game when the page loads
